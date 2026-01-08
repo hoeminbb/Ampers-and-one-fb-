@@ -429,4 +429,8 @@ a{color:inherit; text-decoration:none}
   .main-window .window-body{ padding: 14px; }
 }
 
+@media (max-width: 920px){
+  body { outline: 8px solid red !important; }
+}
+
 
