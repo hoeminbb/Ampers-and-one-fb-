@@ -87,15 +87,29 @@ a{color:inherit; text-decoration:none}
   background: linear-gradient(135deg, rgba(255,255,255,.95), rgba(111,200,255,.22));
 }
 
-/* LAYOUT */
+/* =========================
+   LAYOUT (FIX: AREAS)
+   ========================= */
 .layout{
   display:grid;
   grid-template-columns: 280px 1fr;
+  grid-template-areas: "side main";   /* ✅ define áreas */
   gap:14px;
   margin-top:14px;
 }
+
+/* ✅ asignación de áreas */
+.sidebar{ grid-area: side; height: fit-content; }
+.main-window{ grid-area: main; }
+
 @media (max-width: 920px){
-  .layout{grid-template-columns:1fr}
+  /* ✅ en móvil: primero main (bienvenida), después side (carpetas) */
+  .layout{
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "main"
+      "side";
+  }
 }
 
 /* WINDOWS */
@@ -138,7 +152,6 @@ a{color:inherit; text-decoration:none}
 .win-btn--close{border-color: rgba(255,92,138,.35)}
 
 /* SIDEBAR */
-.sidebar{height: fit-content}
 .folders{padding:12px; display:grid; gap:10px}
 .folder{
   width:100%;
@@ -320,6 +333,7 @@ a{color:inherit; text-decoration:none}
   padding:12px 2px;
   border-top:1px solid rgba(70,150,190,.22);
 }
+
 /* MINI LANDING */
 .landing{
   display:grid;
@@ -339,6 +353,7 @@ a{color:inherit; text-decoration:none}
   padding:14px;
 }
 .landing-right{display:flex; flex-direction:column; gap:10px}
+
 /* =========================
    TABS SIN JS (RADIO)
    ========================= */
@@ -371,20 +386,6 @@ a{color:inherit; text-decoration:none}
 .folder{
   display:block;
   user-select:none;
-}
-
-/* ===== MOBILE: mostrar BIENVENIDA primero (main) y luego carpetas (sidebar) ===== */
-@media (max-width: 920px){
-  .layout{
-    display: grid !important;
-    grid-template-columns: 1fr !important;
-    grid-template-areas:
-      "main"
-      "side" !important;
-  }
-
-  .main-window{ grid-area: main !important; }
-  .sidebar{ grid-area: side !important; }
 }
 
 
