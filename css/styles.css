@@ -298,39 +298,45 @@ a{color:inherit; text-decoration:none}
 }
 
 /* =========================
-   MOBILE DOCK (carpetas fijas abajo)
+   MOBILE: Carpetas ARRIBA (sticky) + se ven todas
    ========================= */
 @media (max-width: 920px){
-  /* deja espacio para el dock */
-  .wrap{ padding-bottom: 140px; }
 
-  /* convierte el sidebar en dock fijo */
+  /* En móvil, el layout apila y pone SIDEBAR arriba */
+  .layout{
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "side"
+      "main";
+  }
+
+  /* Sidebar como barra sticky bajo el topbar */
   .sidebar.window{
-    position: fixed;
-    left: 12px;
-    right: 12px;
-    bottom: 12px;
-    z-index: 9999;
+    position: sticky;
+    top: 64px;              /* si tu topbar es más alto, sube este número */
+    z-index: 80;
   }
 
-  /* quita la barra de arriba del sidebar y la tarjeta extra en móvil */
-  .sidebar.window .window-bar{ display:none; }
-  .sidebar.window .sidebar-card{ display:none; }
+  /* Opcional: ocultar la tarjeta extra para que quede compacto */
+  .sidebar-card{ display: none; }
 
-  /* pone las carpetas en fila */
-  .sidebar.window .folders{
-    display:grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap:10px;
-    padding:12px;
+  /* Opcional: ocultar la barra "FOLDERS" para que ocupe menos */
+  .sidebar .window-bar{ display: none; }
+
+  /* Carpetas en 2 columnas (2 filas). Así no se corta la última */
+  .folders{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding: 12px;
   }
 
-  /* botones compactos */
-  .sidebar.window .folder{
-    text-align:center;
-    padding:12px 8px;
-    font-size:12px;
+  /* Botones más compactos */
+  .folder{
+    text-align: center;
+    padding: 12px 10px;
+    font-size: 13px;
     border-radius: 16px;
-    white-space: nowrap;
+    white-space: nowrap;    /* mantiene el texto en una línea */
   }
 }
