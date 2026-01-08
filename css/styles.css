@@ -374,4 +374,35 @@ a{color:inherit; text-decoration:none}
     height: 0;
   }
 }
+/* =========================
+   MOBILE: carpetas en fila horizontal (arreglado iPhone)
+   ========================= */
+@media (max-width: 1024px){
+
+  .sidebar.window .folders{
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    gap: 8px !important;
+    padding: 8px !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .sidebar.window .folder{
+    width: auto !important;          /* ✅ clave: quita el 100% */
+    flex: 0 0 auto !important;
+    padding: 9px 12px !important;
+    font-size: 12px !important;
+    border-radius: 999px !important;
+    white-space: nowrap !important;
+    text-align: center !important;
+  }
+
+  /* barra de scroll invisible (se ve más limpio) */
+  .sidebar.window .folders::-webkit-scrollbar{
+    height: 0;
+  }
+}
+
 
