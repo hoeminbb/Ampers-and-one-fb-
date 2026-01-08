@@ -373,24 +373,18 @@ a{color:inherit; text-decoration:none}
   user-select:none;
 }
 
-/* =========================
-   MOBILE: mostrar bienvenida primero
-   ========================= */
-@media (max-width: 768px) {
-
-  /* El contenedor principal */
+/* ===== MOBILE: mostrar BIENVENIDA primero (main) y luego carpetas (sidebar) ===== */
+@media (max-width: 920px){
   .layout{
-    display: flex;
-    flex-direction: column;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    grid-template-areas:
+      "main"
+      "side" !important;
   }
 
-  /* Ventana principal (bienvenida) */
-  .main-window{
-    order: 1;
-  }
-
-  /* Sidebar (carpetas) */
-  .sidebar{
-    order: 2;
-  }
+  .main-window{ grid-area: main !important; }
+  .sidebar{ grid-area: side !important; }
 }
+
+
