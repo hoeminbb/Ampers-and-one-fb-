@@ -372,3 +372,25 @@ a{color:inherit; text-decoration:none}
   display:block;
   user-select:none;
 }
+
+/* =========================
+   MOBILE: mostrar bienvenida primero
+   ========================= */
+@media (max-width: 768px) {
+
+  /* El contenedor principal */
+  .layout{
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Ventana principal (bienvenida) */
+  .main-window{
+    order: 1;
+  }
+
+  /* Sidebar (carpetas) */
+  .sidebar{
+    order: 2;
+  }
+}
