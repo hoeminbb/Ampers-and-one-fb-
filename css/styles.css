@@ -298,45 +298,51 @@ a{color:inherit; text-decoration:none}
 }
 
 /* =========================
-   MOBILE: Carpetas ARRIBA (sticky) + se ven todas
+   MOBILE: Carpetas ARRIBA (sticky) + 4 visibles
    ========================= */
-@media (max-width: 920px){
+@media (max-width: 1024px){
 
-  /* En móvil, el layout apila y pone SIDEBAR arriba */
+  /* Cambiamos el grid a columna en móvil (reordenamiento real) */
   .layout{
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      "side"
-      "main";
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 14px !important;
   }
 
-  /* Sidebar como barra sticky bajo el topbar */
+  /* Sidebar arriba */
+  .sidebar{
+    order: 1 !important;
+  }
+
+  /* Main (bienvenida + tabs) abajo */
+  .main-window{
+    order: 2 !important;
+  }
+
+  /* Sidebar estilo barra pegada bajo el topbar */
   .sidebar.window{
-    position: sticky;
-    top: 64px;              /* si tu topbar es más alto, sube este número */
-    z-index: 80;
+    position: sticky !important;
+    top: 64px !important;      /* si te tapa, sube a 72 u 80 */
+    z-index: 999 !important;
   }
 
-  /* Opcional: ocultar la tarjeta extra para que quede compacto */
-  .sidebar-card{ display: none; }
+  /* Compacto (opcional) */
+  .sidebar .window-bar{ display: none !important; }
+  .sidebar-card{ display: none !important; }
 
-  /* Opcional: ocultar la barra "FOLDERS" para que ocupe menos */
-  .sidebar .window-bar{ display: none; }
-
-  /* Carpetas en 2 columnas (2 filas). Así no se corta la última */
+  /* 2x2 para que se vean las 4 carpetas */
   .folders{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-    padding: 12px;
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+    padding: 12px !important;
   }
 
-  /* Botones más compactos */
   .folder{
-    text-align: center;
-    padding: 12px 10px;
-    font-size: 13px;
-    border-radius: 16px;
-    white-space: nowrap;    /* mantiene el texto en una línea */
+    text-align: center !important;
+    padding: 12px 10px !important;
+    font-size: 13px !important;
+    border-radius: 16px !important;
+    white-space: nowrap !important;
   }
 }
