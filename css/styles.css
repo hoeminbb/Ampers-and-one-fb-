@@ -405,25 +405,15 @@ a{color:inherit; text-decoration:none}
   }
 }
 
-/* Color especial para el IG personal */
-.ig-link{
-  color: var(--accent);        /* celeste pastel */
-  font-weight: 700;
-}
-
-.ig-link:hover{
-  color: var(--text);          /* cambia al pasar el dedo */
-  text-decoration: underline;
-}
- 
 /* Color especial para el Instagram personal */
 .ig-link{
-  color: var(--text);   /* = #0b1a33 */
+  color: #ff0080;        /* fucsia */
   font-weight: 700;
 }
 
 .ig-link:hover{
-  color: var(--accent); /* celeste al pasar */
+  color: var(--accent);  /* celeste pastel al pasar */
   text-decoration: underline;
 }
+
 
